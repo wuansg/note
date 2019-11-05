@@ -4,4 +4,4 @@
 
 UML图
 
-![](../img/spring%20BeanFactory.png)
+![](https://github.com/exview/note/blob/master/img/spring%20BeanFactory.png)
