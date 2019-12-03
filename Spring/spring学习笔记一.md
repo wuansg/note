@@ -4,5 +4,5 @@
 
 UML图
 
-![](https://github.com/exview/note/raw/master/img/spring%20BeanFactory.jpg)
+![Spring BeanFactory结构组成](https://github.com/exview/note/raw/master/img/spring%20BeanFactory.jpg)
 
