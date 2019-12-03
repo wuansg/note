@@ -6,5 +6,3 @@ UML图
 
 ![](https://github.com/exview/note/raw/master/img/spring%20BeanFactory.jpg)
 
-![](img/spring%20BeanFactory.png)
-
