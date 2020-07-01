@@ -34,7 +34,7 @@ solutions
 
 ```
 len(left_part) == len(right_part)
-max(left_part) <= max(right_part)
+max(left_part) <= min(right_part)
 ```
 
 为满足以上两个条件，需以下条件
@@ -197,13 +197,45 @@ class Solution {
 }
 ```
 
-#### Roman to Integer(leetcode num.13)
+#### Rotated Digits（788）
 
-solution
+> X is a good number if after rotating each digit individually by 180 degrees, we get a valid number that is different from X.  Each digit must be rotated - we cannot choose to leave it alone.
+>
+> A number is valid if each digit remains a digit after rotation. 0, 1, and 8 rotate to themselves; 2 and 5 rotate to each other; 6 and 9 rotate to each other, and the rest of the numbers do not rotate to any other number and become invalid.
+
+**solution**
 
 ```java
-public int romanToInt(String s){
-    
+public int rotatedDigits(int N) {
+    if (N <= 0)
+        return 0;
+
+    Set<Integer> good = new HashSet<>(Arrays.asList(2,5,6,9));
+    Set<Integer> bad = new HashSet<>(Arrays.asList(3,4,7));
+    boolean isValid;
+    int count = 0;
+
+    for (int i = 0; i <= N; i++) {
+        isValid = false;
+        int currentNumber = i;
+        while(currentNumber > 0) {
+            int bit = currentNumber % 10;
+            currentNumber /= 10;
+            if (bad.contains(bit)){
+                isValid = false;
+                break;
+            }
+            if (good.contains(bit)) {
+                isValid = true;
+            }
+        }
+        if (!isValid)
+            continue;
+        count++;
+    }
+    return count;
 }
 ```
+
+
 

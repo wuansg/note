@@ -1,0 +1,4 @@
+1. LinkedHashMap有两个参数影响性能：initial capacity和load factor。（对于一个比较大的初始化值，LinkedHashMap的代价比HashMap小，因为LinkedHashMap的iteration时间是与size相关，而不是与capacity相关）
+2. 在插入有序的linkedHashMap，仅仅改变存在key的值是不属于结构性的修改。而在访问有序的LinkedHashMap时，就算是get也是一个结构性的修改。
+3. 
+
