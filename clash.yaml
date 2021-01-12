@@ -1,0 +1,33 @@
+mixed-port: 7890
+allow-lan: false
+log-level: info
+external-controller: '127.0.0.1:9090'
+secret: ''
+ipv6: false
+
+# Will be ignored after profile selection
+proxies:
+  - name: "tencent"
+    type: ss
+    server: 101.32.62.23
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: "091207"
+    fast_open: true
+proxy-groups:
+  - name: auto
+    type: select
+    proxies:
+      - tencent
+rules:
+  - DOMAIN-SUFFIX,google.com,auto
+  - DOMAIN-KEYWORD,google,auto
+  - DOMAIN,google.com,auto
+  - DOMAIN-SUFFIX,ad.com,REJECT
+  - SRC-IP-CIDR,192.168.1.201/32,DIRECT
+  # optional param "no-resolve" for IP rules (GEOIP, IP-CIDR, IP-CIDR6)
+  - IP-CIDR,127.0.0.0/8,DIRECT
+  - GEOIP,CN,DIRECT
+  - DST-PORT,80,DIRECT
+  - SRC-PORT,7777,DIRECT
+  - MATCH,auto
