@@ -15,30 +15,27 @@ proxies:
     password: "091207"
     fast_open: true
 
-  - name: "vmess"
+  - name: "v2ray"
     type: vmess
     server: 119.28.85.62
     port: 10080
     uuid: c13bb3db-6e06-43f5-bbfa-a8e136deffc5
     alterId: 64
     cipher: auto
-    tls: true
-    network: tcp
-    skip-cert-verify: false
 
 proxy-groups:
   - name: auto
     type: select
     proxies:
-      - Test
+      - Auto
       - tencent
-      - vmess
+      - v2ray
 
-  - name: Test
+  - name: Auto
     type: url-test
     proxies:
       - tencent
-      - vmess
+      - v2ray
     url: 'https://www.google.com.hk/'
     interval: '28800'
 rules:
