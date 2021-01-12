@@ -30,6 +30,7 @@ proxy-groups:
   - name: auto
     type: select
     proxies:
+      - Auto
       - tencent
       - vmess
 
