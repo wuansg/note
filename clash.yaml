@@ -30,11 +30,11 @@ proxy-groups:
   - name: auto
     type: select
     proxies:
-      - Auto
+      - Test
       - tencent
       - vmess
 
-  - name: Auto
+  - name: Test
     type: url-test
     proxies:
       - tencent
