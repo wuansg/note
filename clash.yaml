@@ -34,12 +34,12 @@ proxy-groups:
       - vmess
 
   - name: Auto
-      type: url-test
-      proxies:
-        - tencent
-        - vmess
-      url: 'https://www.google.com.hk/'
-      interval: '28800'
+    type: url-test
+    proxies:
+      - tencent
+      - vmess
+    url: 'https://www.google.com.hk/'
+    interval: '28800'
 rules:
   - DOMAIN-SUFFIX,google.com,auto
   - DOMAIN-KEYWORD,google,auto
