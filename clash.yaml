@@ -14,11 +14,29 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: "091207"
     fast_open: true
+
+  - name: "vmess"
+    type: vmess
+    server: 119.28.85.62
+    port: 10080
+    uuid: c13bb3db-6e06-43f5-bbfa-a8e136deffc5
+    alterId: 64
+    cipher: auto
+    tls: true
+    network: tcp
+    skip-cert-verify: false
+
 proxy-groups:
   - name: auto
     type: select
     proxies:
       - tencent
+      - vmess
+
+  - name: "紧急使用"
+    type: select
+    proxies:
+      - vmess
 rules:
   - DOMAIN-SUFFIX,google.com,auto
   - DOMAIN-KEYWORD,google,auto
