@@ -33,10 +33,13 @@ proxy-groups:
       - tencent
       - vmess
 
-  - name: "紧急使用"
-    type: select
-    proxies:
-      - vmess
+  - name: Auto
+      type: url-test
+      proxies:
+        - tencent
+        - vmess
+      url: 'https://www.google.com.hk/'
+      interval: '28800'
 rules:
   - DOMAIN-SUFFIX,google.com,auto
   - DOMAIN-KEYWORD,google,auto
