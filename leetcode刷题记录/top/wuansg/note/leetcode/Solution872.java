@@ -1,5 +1,7 @@
 package top.wuansg.note.leetcode;
 
+import top.wuansg.note.leetcode.structure.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
