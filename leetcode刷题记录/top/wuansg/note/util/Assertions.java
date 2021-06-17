@@ -11,6 +11,18 @@ import java.util.Arrays;
  */
 public class Assertions {
 
+    public static void assertTrue(boolean actual) {
+        if (!actual) {
+            throw new AssertionException("actual value is false");
+        }
+    }
+
+    public static void assertFalse(boolean actual) {
+        if (actual) {
+            throw new AssertionException("actual value is true");
+        }
+    }
+
     public static <T> void assertEquals(T expire, T actual) {
         if (expire == null) {
             throw new AssertionException("expire value is null, consider use assertNull function");
