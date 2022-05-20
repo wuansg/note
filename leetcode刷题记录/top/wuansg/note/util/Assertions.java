@@ -27,6 +27,18 @@ public class Assertions {
         if (expire == null) {
             throw new AssertionException("expire value is null, consider use assertNull function");
         }
+        if (expire instanceof int[]) {
+            if (!(actual instanceof int[])) throw new AssertionException("expire type is not same as actual type");
+            int[] expireInts = (int[]) expire;
+            int[] actualInts = (int[]) actual;
+            if (expireInts.length != actualInts.length) throw new AssertionException(String.format("expire length is not equals to actual value, expire length: %s, actual length: %s", expireInts.length, actualInts.length));
+            for (int i = 0; i < expireInts.length; i++) {
+                if (expireInts[i] != actualInts[i]) {
+                    throw new AssertionException(String.format("index: %s of array value is not equals, actual value: %s, expire value: %s", i, Arrays.toString(actualInts), Arrays.toString(expireInts)));
+                }
+            }
+            return;
+        }
         if (!expire.equals(actual)) {
             throw new AssertionException(String.format("expire value is not equals to actual value, expireValue: %s, actualValue: %s", expire, actual));
         }
