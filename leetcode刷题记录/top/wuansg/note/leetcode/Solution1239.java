@@ -3,6 +3,7 @@ package top.wuansg.note.leetcode;
 import top.wuansg.note.util.Assertions;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Solution1239 {
@@ -10,11 +11,11 @@ public class Solution1239 {
 
     public static void main(String[] args) {
         Solution1239 solution1239 = new Solution1239();
-        List<String> input = List.of("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p");
+        List<String> input = Arrays.asList("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p");
         Assertions.assertEquals(16, solution1239.maxLength(input));
-        input = List.of("yy","bkhwmpbiisbldzknpm");
+        input = Arrays.asList("yy","bkhwmpbiisbldzknpm");
         Assertions.assertEquals(0, solution1239.maxLength(input));
-        input = List.of("ab","cd","cde","cdef","efg","fgh","abxyz");
+        input = Arrays.asList("ab","cd","cde","cdef","efg","fgh","abxyz");
         Assertions.assertEquals(11, solution1239.maxLength(input));
     }
 
