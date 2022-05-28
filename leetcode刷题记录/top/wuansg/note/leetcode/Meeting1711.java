@@ -17,8 +17,6 @@ package top.wuansg.note.leetcode;
 
 import top.wuansg.note.util.Assertions;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class Meeting1711 {
@@ -29,25 +27,17 @@ public class Meeting1711 {
     }
 
     public int findClosest(String[] words, String word1, String word2) {
-        List<Integer> list1 = new ArrayList<>();
-        List<Integer> list2 = new ArrayList<>();
+        int min = Integer.MAX_VALUE;
+        int index1 = 0, index2 = Integer.MAX_VALUE;
         for (int i = 0; i < words.length; i++) {
             if (Objects.equals(word1, words[i])) {
-                list1.add(i);
+                index1 = i;
+                min = Math.min(min, Math.abs(index1 - index2));
+                continue;
             }
             if (Objects.equals(word2, words[i])) {
-                list2.add(i);
-            }
-        }
-        int i = 0, j = 0;
-        int min = Integer.MAX_VALUE;
-        while (i < list1.size() && j < list2.size()) {
-            if (list1.get(i) > list2.get(j)) {
-                min = Math.min(min, list1.get(i) - list2.get(j));
-                j++;
-            } else {
-                min = Math.min(min, list2.get(j) - list1.get(i));
-                i++;
+                index2 = i;
+                min = Math.min(min, Math.abs(index1 - index2));
             }
         }
         return min;
